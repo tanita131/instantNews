@@ -4,7 +4,11 @@ var gulp = require('gulp'),
     eslint = require('gulp-eslint'),
     rename = require('gulp-rename'),
     plumber = require('gulp-plumber'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssnano = require('gulp-cssnano');
+
 
 var plumberErrorHandler = {
   errorHandler: notify.onError({
@@ -13,13 +17,25 @@ var plumberErrorHandler = {
   })
 };
 
+gulp.task('sass', function() {
+   gulp.src('./sass/style.scss')
+    .pipe(plumber(plumberErrorHandler))
+      .pipe(sass())
+      .pipe(autoprefixer({
+         browsers: ['last 2 versions']
+      }))
+      .pipe(gulp.dest('./build/css'))
+      .pipe(cssnano())
+      .pipe(rename('style.min.css'))
+      .pipe(gulp.dest('./build/css'));
+});
+
 gulp.task('scripts', ['lint'], function() {
     gulp.src('./scripts/*.js')
-       // .pipe(plumber(plumberErrorHandler))
         .pipe(uglify())
         .pipe(rename({extname: '.min.js' }))
         .pipe(gulp.dest('./build/js'))
-        .pipe(notify("Hello Gulp!"));
+      
 });
 
 gulp.task('lint', function(){
@@ -29,7 +45,6 @@ gulp.task('lint', function(){
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
-//gulp.task('sass', function(){});
 
 gulp.task('browser-sync', function(){
     browserSync.init ({
@@ -38,12 +53,13 @@ gulp.task('browser-sync', function(){
         }
     });
 
-    gulp.watch(['styles/*.css', 'build/js/*.js', 'index.html']).on('change', browserSync.reload);
+    gulp.watch(['build/css/*.css', 'build/js/*.js', 'index.html']).on('change', browserSync.reload);
 });
 
 
 
 gulp.task('watch', function() {
+   gulp.watch('sass/*.scss',['sass'])
    gulp.watch('scripts/*.js', ['scripts']);
 });
 
