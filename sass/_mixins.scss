@@ -1,5 +1,6 @@
-@mixin mediaquery($width){
-    @media only screen and (min-width:$width){
-        @content;
-    }
+
+@mixin media($width) {
+ @media all and (min-width: $width) {
+   @content;
+ }
 }

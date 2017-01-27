@@ -49,7 +49,7 @@ gulp.task('lint', function(){
 gulp.task('browser-sync', function(){
     browserSync.init ({
         server: {
-            baseDir: "./"
+            baseDir: './'
         }
     });
 
@@ -63,4 +63,4 @@ gulp.task('watch', function() {
    gulp.watch('scripts/*.js', ['scripts']);
 });
 
-gulp.task('default', ['watch', 'browser-sync', 'lint']);
+gulp.task('default', ['watch', 'browser-sync',]);

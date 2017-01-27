@@ -1,23 +1,107 @@
 
 
 body {
-    background-color:black;
+     background-color:black;
+     font-family: 'open_sanslight', serif;
+     font-size: 16px;
+     /*font-weight: normal;
+     font-style: normal;*/
+     @include media($tablet-width) {
+        background-color:lightskyblue;
+    }
+}
+
+/*.container{
+    margin:0 auto;
+    width: 100%;   
+}*/
+
 header{
-
-    font-family: "open_sans", Serif;
-	font-weight: normal;
-    font-style: normal;
-	height: 100%;
-	font-size: 16px;
-	color: white;
-    @include mediaquery(1000px)
+       display:flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       align-content: center;
+	   height: 90vh;
+       color: white;
+       padding-bottom: 20px;
+       @include media($tablet-width){
+           flex-direction: row;
+           align-content: center;
+       }
+       @include media($desktop-width){
+           justify-content: flex-start;
+           margin: 0 0;
+       }
+    //padding-top: 30%;   
 }
-@media only screen and (max-width:480px){
-      .body .header{
-          width:100%;
-         
-
+.instaNewsLogo{
+    display:flex;
+    width: 100%;
+    height: auto;
+    flex: 1 1 100%;
+    margin-top:20px;
+     
+        img{
+            
+            width: 50%;
+            height: auto;
+            margin: 0 auto 0 auto;
+        }
+    @include media($tablet-width){
+        flex: 0 1 20%;
+            img{
+                width:100%;
+                height: auto;
+               }
+    }           
+    @include media($desktop-width){
+        flex: 0 1 20%;
+        align-self: center;
+    }
+    
 }
-     }
+.menuSection{
+    display: flex;
+    max-width: 100%;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: center;
+    
+    @include media($tablet-width){
+              align-self: center;
+              flex: 0 1 auto;
+    }
+    @include media($desktop-width){
+              align-self: center;
+              align-items: flex-start;
+    }
+         p{
+             text-align: center;
+             width: 150px;
+             padding: 10% 0;
+             @include media($tablet-width){
+                 text-align: left;
+             }
+         }
+         select{
+             width: 150px;
+         }
+}
+footer{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    @include media($desktop-width){
+           text-align: left;
+    }
+   
 
+       p{
+           color:#c2c2c2;
+           padding: 3%;
+           span{
+               text-transform: uppercase;
+               
+           }
+       }
 }
