@@ -79,9 +79,6 @@ body {
   font-size: 16px;
   /*font-weight: normal;
      font-style: normal;*/ }
-  @media all and (min-width: 600px) {
-    body {
-      background-color: lightskyblue; } }
 
 /*.container{
     margin:0 auto;
@@ -110,6 +107,21 @@ header {
       -ms-flex-pack: start;
           justify-content: flex-start;
       margin: 0 0; } }
+
+.header-transitions {
+  height: auto; }
+  .header-transitions .instaNewsLogo {
+    width: 100px;
+    height: 100px; }
+  @media all and (min-width: 600px) {
+    .header-transitions {
+      height: 150px;
+      -ms-flex-pack: start;
+          justify-content: flex-start; } }
+  @media all and (min-width: 1000px) {
+    .header-transitions {
+      max-width: 50%;
+      height: 135px; } }
 
 .instaNewsLogo {
   display: -ms-flexbox;
@@ -172,6 +184,57 @@ header {
   .menuSection select {
     width: 150px; }
 
+#loadingArea {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  #loadingArea img {
+    width: 100px;
+    height: 100px; }
+
+.topNews {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  width: 100%;
+  -ms-flex-align: center;
+      align-items: center; }
+  .topNews li {
+    max-width: 100%;
+    -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+    position: relative; }
+    @media all and (min-width: 600px) {
+      .topNews li {
+        max-width: 50%;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%; } }
+    @media all and (min-width: 1000px) {
+      .topNews li {
+        max-width: 25%;
+        -ms-flex: 1 1 25%;
+            flex: 1 1 25%; } }
+
+.picture {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%; }
+
+.abstract {
+  color: white;
+  position: absolute;
+  height: 60px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  bottom: 0; }
+
 footer {
   height: 100px;
   width: 100%;
@@ -181,6 +244,7 @@ footer {
       text-align: left; } }
   footer p {
     color: #c2c2c2;
+    font-size: 14px;
     padding: 3%; }
     footer p span {
       text-transform: uppercase; }

@@ -1,8 +1,10 @@
 $(document).ready(function(){
  // Aquí va nuestro código para manipular el DOM
  
+ $('#loadingArea').hide();
  $('.select').on('change', function(){
-
+ $('#loadingArea').show();
+ $('header').addClass('header-transitions');
   var $topNews = $('.topNews');
   $topNews.empty();
   var $selecting = $('.select').val();
@@ -28,15 +30,15 @@ $(document).ready(function(){
           var $url =value.url;
 
           newInfo += '<li class="picture" style="background-image: url(' + value.multimedia[4].url + ')">';
-          newInfo += '<a href="' + value.url + '"></a>';
-          newInfo +='<p class="abstract">' + value.abstract + '</p>' + '</li>';
+          newInfo += '<a href="' + value.url + '"> ';
+          newInfo +='<p class="abstract">' + value.abstract + '</p>' + '</li></a>';
      
       });
 
       $topNews.append(newInfo);
 
     }).always(function(){
-      
+      $('#loadingArea').hide();
     });
 
   });
