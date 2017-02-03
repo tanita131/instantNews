@@ -30,6 +30,7 @@ header{
        @include media($desktop-width){
            justify-content: flex-start;
            margin: 0 0;
+           padding-bottom: 0;
        }
       
 }
@@ -99,7 +100,12 @@ header{
              }
          }
          select{
-             width: 150px;
+             width: 150px;       
+             width: 120px;
+             height: 25px;
+             font-size: 1rem;
+             text-transform: capitalize;
+             outline: none;
          }
 }
 #loadingArea {
@@ -150,7 +156,6 @@ header{
    }
  
 footer{
-    height: 100px;
     width: 100%;
     text-align: center;
     @include media($desktop-width){
